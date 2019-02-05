@@ -1,13 +1,11 @@
 package com.example.mobilprogrammingproject;
 
-import android.os.AsyncTask;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.os.Bundle;
 import android.widget.Toast;
-import com.example.mobilprogrammingproject.API_REST;
 
 import java.lang.String;
 import java.net.URL;
@@ -31,9 +29,9 @@ public class ListActivity extends AppCompatActivity {
         API_REST githubService = new RestAdapter.Builder()
                 .setEndpoint(API_REST.URL)
                 .build()
-                .create(URL.class);
+                .create(API_REST.class);
 
-        githubService.listReposAsync("florent37",new Callback<List<individu>>() {
+        githubService.listReposAsync("Zatuar",new Callback<List<individu>>() {
             @Override
             public void success(List<individu> repos, Response response) {
                 afficherRepos(repos);
