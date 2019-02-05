@@ -2,4 +2,8 @@
     <string name="app_name">Mobil Programming Project</string>
     <string name="class_34_2018">Class 34-2018</string>
     <string name="start">press where ever you want</string>
+    <string name="l1">1er contact</string>
+    <string name="l2">2ème contact</string>
+    <string name="avatarprofil">avatarProfil</string>
+    <string name="name_profil">name_profil: %s</string>
 </resources>
