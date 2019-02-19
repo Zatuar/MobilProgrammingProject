@@ -7,11 +7,38 @@
     tools:context=".InfoProfilActivity">
 
     <TextView
-        android:id="@+id/profil_id"
+        android:id="@+id/profil_name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/name_profil"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:text="@string/profil_name"
         app:layout_constraintTop_toTopOf="parent"
         tools:layout_editor_absoluteX="16dp" />
+
+    <TextView
+        android:id="@+id/profil_firstName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="@string/profil_firstName"
+        app:layout_constraintTop_toBottomOf="@+id/profil_name"
+        tools:layout_editor_absoluteX="16dp" />
+
+    <TextView
+        android:id="@+id/profil_surname"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="@string/profil_surname"
+        app:layout_constraintTop_toBottomOf="@+id/profil_firstName"
+        tools:layout_editor_absoluteX="16dp" />
+
+    <TextView
+        android:id="@+id/profil_email"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="@string/profil_email"
+        app:layout_constraintTop_toBottomOf="@+id/profil_surname"
+        tools:layout_editor_absoluteX="16dp" />
+
 </android.support.constraint.ConstraintLayout>

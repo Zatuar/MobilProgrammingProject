@@ -1,19 +1,14 @@
 package com.example.mobilprogrammingproject;
+
 import java.util.List;
 
-import retrofit.Callback;
-import retrofit.http.GET;
-import retrofit.http.Path;
-import retrofit.http.Query;
+import retrofit2.Call;
+import retrofit2.http.GET;
 
 public interface API_REST{
 
-    public static final String URL = "https://api.github.com";
+    String URL = "https://raw.githubusercontent.com/Zatuar/MobilProgrammingProject/Listv2/data/";
 
-    @GET("/users/{user}/repos")
-    void listReposAsync(@Path("user") String user, Callback<List<individu>> callback);
-    //List<individu> listRepos(@Path("user") String user);
-
-    @GET("/search/repositories")
-    List<individu> searchRepos(@Query("q") String query);
+    @GET("3A_2018_2019.json")
+    Call<List<Individu>> loadChanges();
 }

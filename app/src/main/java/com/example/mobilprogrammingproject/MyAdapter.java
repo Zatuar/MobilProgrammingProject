@@ -1,42 +1,51 @@
 package com.example.mobilprogrammingproject;
 
+import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import java.util.List;
+
 public class MyAdapter extends RecyclerView.Adapter<MyAdapter.Holder> {
 
-    private String[] mItems;
+    private List<Individu> mItems;
+    private final OnItemClickListener listener;
 
-    MyAdapter(String[] items) {
-        mItems = items;
+    MyAdapter(List<Individu> items, OnItemClickListener listener) {
+        this.mItems = items;
+        this.listener = listener;
     }
-
-    public static class Holder extends RecyclerView.ViewHolder {
-        public TextView textView;
-
-        public Holder(View itemView) {
+    static class Holder extends RecyclerView.ViewHolder {
+        TextView textView;
+        Holder(View itemView){
             super(itemView);
             textView = itemView.findViewById(R.id.textView);
         }
     }
-
+    @NonNull
     @Override
-    public Holder onCreateViewHolder(ViewGroup parent, int position) {
+    public Holder onCreateViewHolder(@NonNull ViewGroup parent, int position) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.row, parent, false);
         return new Holder(view);
     }
-
     @Override
-    public void onBindViewHolder(Holder holder, int position) {
-        String key = mItems[position];
-        holder.textView.setText(key);
-    }
+    public void onBindViewHolder(@NonNull Holder holder, int position) {
+        final Individu key = mItems.get(position);
+        String print=key.getId()+")"+key.getName();
+        holder.textView.setText(print);
 
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                listener.onItemClick(key);
+            }
+        });
+    }
     @Override
     public int getItemCount() {
-        return mItems.length;
+        return mItems.size();
     }
 }
