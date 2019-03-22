@@ -2,6 +2,7 @@ package com.example.mobilprogrammingproject;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.os.Bundle;
@@ -18,8 +19,6 @@ import retrofit2.Callback;
 import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
-
-import static com.example.mobilprogrammingproject.API_REST.URL;
 
 public class ListActivity extends AppCompatActivity {
     List<Individu> student;
@@ -38,7 +37,7 @@ public class ListActivity extends AppCompatActivity {
                 .setLenient()
                 .create();
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl(URL)
+                .baseUrl(API_REST.URL)
                 .addConverterFactory(GsonConverterFactory.create(gson))
                 .build();
         API_REST response = retrofit.create(API_REST.class);
@@ -67,6 +66,9 @@ public class ListActivity extends AppCompatActivity {
                 selectMe(item);
             }
         });
+        DividerItemDecoration mDivider;
+        mDivider= new DividerItemDecoration(mClassList.getContext(),DividerItemDecoration.VERTICAL);
+        mClassList.addItemDecoration(mDivider);
         mClassList.setAdapter(mAdapter);
     }
     public void selectMe(Individu item){
@@ -77,4 +79,3 @@ public class ListActivity extends AppCompatActivity {
         startActivity(selectStudent);
     }
 }
-

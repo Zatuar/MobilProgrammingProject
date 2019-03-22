@@ -4,4 +4,5 @@
         android:id="@+id/classList"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        />
+        android:layout_gravity="center"
+        android:background="@drawable/font_main_menu_2"/>

@@ -1,7 +1,9 @@
 package com.example.mobilprogrammingproject;
 
+import android.graphics.Typeface;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -34,7 +36,9 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.Holder> {
     @Override
     public void onBindViewHolder(@NonNull Holder holder, int position) {
         final Individu key = mItems.get(position);
-        String print=key.getId()+")"+key.getName();
+        /*key.getId()+")"+*/
+        String print=key.getName();
+        setFont(holder);
         holder.textView.setText(print);
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
@@ -44,8 +48,18 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.Holder> {
             }
         });
     }
+
     @Override
     public int getItemCount() {
         return mItems.size();
+    }
+
+    private void setFont(Holder holder) {
+        try {
+            Typeface typeface = Typeface.createFromAsset(holder.itemView.getContext().getAssets(), "font/sevesbrg.ttf");
+            holder.textView.setTypeface(typeface);
+        } catch (Exception e) {
+            Log.e("FONT", "svesbrg.ttf not found", e);
+        }
     }
 }

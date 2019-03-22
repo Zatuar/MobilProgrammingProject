@@ -1,9 +1,10 @@
 <resources>
-    <string name="app_name">Mobil Programming Project</string>
-    <string name="class_34_2018">Class 34–2018</string>
+    <string name="app_name">Class 34–2018 Student List</string>
+    <string name="class_34_2018">Welcome to Class 34</string>
     <string name="start">press where ever you want</string>
     <string name="profil_email">%s</string>
     <string name="profil_surname">%s</string>
     <string name="profil_firstName">%s</string>
     <string name="profil_name">%s</string>
+    <string name="profil_picture">profil_picture</string>
 </resources>
