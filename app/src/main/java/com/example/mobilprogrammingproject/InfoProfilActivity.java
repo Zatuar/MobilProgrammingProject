@@ -31,7 +31,12 @@ public class InfoProfilActivity extends AppCompatActivity {
         Gson gson = new Gson();
         Individu student = gson.fromJson(this.student, Individu.class);
 
-        new DownloadImageTask((ImageView) findViewById(R.id.picture)).execute(student.getPicture());
+        if(!student.getPicture().isEmpty()){
+            new DownloadImageTask((ImageView) findViewById(R.id.picture)).execute(student.getPicture());
+        }else{
+            ImageView imageView=findViewById(R.id.picture);
+            imageView.setImageResource(R.drawable.mort);
+        }
 
         TextView nameView = findViewById(R.id.profil_name);
         setFont(nameView, "sevesbrg.ttf");
