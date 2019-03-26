@@ -12,9 +12,8 @@ import android.widget.TextView;
 import java.util.List;
 
 public class MyAdapter extends RecyclerView.Adapter<MyAdapter.Holder> {
-
+    private OnItemClickListener listener;
     private List<Individu> mItems;
-    private final OnItemClickListener listener;
 
     MyAdapter(List<Individu> items, OnItemClickListener listener) {
         this.mItems = items;
@@ -36,11 +35,9 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.Holder> {
     @Override
     public void onBindViewHolder(@NonNull Holder holder, int position) {
         final Individu key = mItems.get(position);
-        /*key.getId()+")"+*/
         String print=key.getName();
         setFont(holder);
         holder.textView.setText(print);
-
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -48,7 +45,6 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.Holder> {
             }
         });
     }
-
     @Override
     public int getItemCount() {
         return mItems.size();

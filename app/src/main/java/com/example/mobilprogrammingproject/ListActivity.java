@@ -46,7 +46,7 @@ public class ListActivity extends AppCompatActivity {
             @Override
             public void onResponse(Call<List<Individu>> call, Response<List<Individu>> response) {
                 student=response.body();
-                showStudent();
+                showStudent(student);
             }
 
             @Override
@@ -55,21 +55,21 @@ public class ListActivity extends AppCompatActivity {
             }
         });
     }
-    public void showStudent() {
+    public void showStudent(List<Individu> list) {
         mClassList = findViewById(R.id.classList);
         mClassList.setHasFixedSize(true);
         mLayoutManager = new LinearLayoutManager(this);
         mClassList.setLayoutManager(mLayoutManager);
-        mAdapter = new MyAdapter(student, new OnItemClickListener() {
+        mAdapter = new MyAdapter(list, new OnItemClickListener() {
             @Override
             public void onItemClick(Individu item) {
                 selectMe(item);
             }
         });
+        mClassList.setAdapter(mAdapter);
         DividerItemDecoration mDivider;
         mDivider= new DividerItemDecoration(mClassList.getContext(),DividerItemDecoration.VERTICAL);
         mClassList.addItemDecoration(mDivider);
-        mClassList.setAdapter(mAdapter);
     }
     public void selectMe(Individu item){
         Intent selectStudent = new Intent(this, InfoProfilActivity.class);

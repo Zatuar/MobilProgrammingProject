@@ -7,4 +7,6 @@
     <string name="profil_firstName">%s</string>
     <string name="profil_name">%s</string>
     <string name="profil_picture">profil_picture</string>
+    <string name="design">design</string>
+    <string name="presentation">presentation</string>
 </resources>
