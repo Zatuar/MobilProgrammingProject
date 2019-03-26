@@ -9,4 +9,5 @@ https://raw.githubusercontent.com/Zatuar/MobilProgrammingProject/Listv2/data/3A_
 
 Cette API est la liste des étudiants qui sont/étaient dans ma classe de 3eme année.
 
-L'appli a pour thème de fond le film 300 (comme on peut le voir sur les captures suivants 
+L'appli a pour thème de fond le film 300 (comme on peut le voir sur la capture ci-dessous. 
+![alt text](https://raw.githubusercontent.com/Zatuar/MobilProgrammingProject/blob/Listv2/screen/title.jpg)
